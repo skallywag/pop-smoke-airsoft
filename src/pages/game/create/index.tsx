@@ -88,8 +88,8 @@ const CreateGame: React.FC = () => {
             <Text mb={20} size={'xl'} fw={900}>Create New Game</Text>
 
             <Box style={{boxShadow: '0 0 20px rgba(0,0,0,.18'}}>
-                <Title mb={20} size={18} c={theme.colors.orange[8]} >Operation</Title>
                 <form style={{padding: '36px 24px'}} onSubmit={form.onSubmit(onSubmit)}>
+                <Title mb={20} size={18} c={theme.primaryColor} >Operation</Title>
                     <TextInput
                         mb={20}
                         label="Title"
@@ -155,7 +155,7 @@ const CreateGame: React.FC = () => {
                         {...form.getInputProps('dateTime')}
                     />
                     <Divider mb={20}/>
-                    <Title mb={20} size={18} c={theme.colors.orange[8]}>Contact</Title>
+                    <Title mb={20} size={18} c={theme.primaryColor}>Contact</Title>
                     <TextInput
                         mb={20}
                         label="First Name"

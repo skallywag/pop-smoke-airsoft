@@ -2,18 +2,24 @@ import '@mantine/core/styles.css'
 import '@mantine/dates/styles.css';
 import {items} from './routesConfig'
 import type {AppProps} from 'next/app'
+import logo from '../assets/smokeIcon.jpeg'
 import {useDisclosure} from "@mantine/hooks";
+import '@mantine/core/styles.css';
 import {
     AppShell,
     Burger,
+    Divider,
     createTheme,
     Flex,
+    Image,
     Group,
     MantineProvider,
     MantineThemeOverride,
     NavLink,
-    Title
+    Title,
 } from '@mantine/core'
+import '../styles/globals.css'
+
 
 const myTheme: MantineThemeOverride = createTheme({
     primaryColor: 'orange',
@@ -26,29 +32,49 @@ export default function _appTsx({Component, pageProps}: AppProps) {
         <MantineProvider theme={myTheme}>
             <AppShell
                 layout="alt"
+                padding="md"
                 header={{height: 60}}
                 footer={{height: 60}}
+                styles={{root: {borderRight: 'none'}}}
                 navbar={{width: 250, breakpoint: 'sm', collapsed: {mobile: !opened}}}
-                padding="md"
             >
-
                 <AppShell.Header style={{background: '#333'}}>
                     <Group h="100%" px="md">
-                        <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm"/>
+                        <Burger
+                            size="md"
+                            hiddenFrom="sm"
+                            opened={opened}
+                            onClick={toggle}
+                            color={myTheme.primaryColor}
+                        />
                     </Group>
                 </AppShell.Header>
 
-                <AppShell.Navbar style={{background: '#333'}}>
-                    <Flex
-                        mih={60}
-                        w={"100%"}
-                        justify="center"
-                        align="center"
-                    >
+                <AppShell.Navbar
+                    style={{background: '#333', borderRight: 'none'}}>
+                    <Burger
+                        size="md"
+                        hiddenFrom="sm"
+                        opened={opened}
+                        onClick={toggle}
+                        color={myTheme.primaryColor}
+                        style={{position: 'absolute', top: '14px', left: '14px'}}
+                    />
+                    <Flex align={'center'} gap={20} p={'10px'}>
+                        <Image
+                            src={logo.src}
+                            radius={60}
+                            fit={'object-cover'}
+                            height={40}
+                            width={40}
+                            style={{width: '40px'}}
+                        />
+                        <Title size={"md"}>Pop Smoke AS</Title>
                     </Flex>
-                    <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm"/>
-                    <Group p="md">
 
+                    <Divider/>
+
+                    <Group p={"md"}>
                         {Object.entries(items).map(([groupTitle, groupItems]) => (
                             <div key={groupTitle}>
                                 <Title order={4} c="white" fz="sm">{groupTitle}</Title>
@@ -58,7 +84,16 @@ export default function _appTsx({Component, pageProps}: AppProps) {
                                             href={item.path}
                                             key={item.name}
                                             label={item.name}
-
+                                            leftSection={item.icon}
+                                            style={{
+                                                color: 'white',
+                                                borderRadius: '8px',
+                                                root: {
+                                                    '&:hover': {
+                                                        backgroundColor: 'blue'
+                                                    },
+                                                },
+                                            }}
                                         />
                                     ))}
                                 </Group>
@@ -66,13 +101,9 @@ export default function _appTsx({Component, pageProps}: AppProps) {
                         ))}
                     </Group>
                 </AppShell.Navbar>
-                <AppShell.Main>
+                <AppShell.Main styles={{root: {borderRight: 'none'}}}>
                     <Component {...pageProps} />
                 </AppShell.Main>
-                {/*<AppShell.Aside p="md">*/}
-                {/*    RIGHT COMPONENT*/}
-                {/*</AppShell.Aside>*/}
-                {/*<AppShell.Footer p="md">Footer</AppShell.Footer>*/}
             </AppShell>
         </MantineProvider>
     )
