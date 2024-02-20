@@ -1,16 +1,16 @@
 import {
-  type DefaultMantineColor,
-  type MantineColorsTuple,
+    type DefaultMantineColor,
+    type MantineColorsTuple,
 } from "@mantine/core";
 
 type ExtendedCustomColors =
-  | "primaryColorName"
-  | "secondaryColorName"
-  | "poopyGreen"
-  | DefaultMantineColor;
+    | "primaryColorName"
+    | "secondaryColorName"
+    | "themeColors"
+    | DefaultMantineColor;
 
 declare module "@mantine/core" {
-  export interface MantineThemeColorsOverride {
-    colors: Record<ExtendedCustomColors, MantineColorsTuple>;
-  }
+    export interface MantineThemeColorsOverride {
+        colors: Record<ExtendedCustomColors, MantineColorsTuple>;
+    }
 }

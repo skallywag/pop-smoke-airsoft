@@ -9,8 +9,8 @@
     "db:studio": "prisma studio",
     "dev": "next dev",
     "postinstall": "prisma generate",
-    "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint --fix --ext .js,.jsx,.tsx."
   },
   "dependencies": {
     "@mantine/carousel": "^7.5.1",

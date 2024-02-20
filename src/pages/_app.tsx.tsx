@@ -23,7 +23,7 @@ import "../styles/globals.css";
 const myTheme: MantineThemeOverride = createTheme({
   primaryColor: "orange",
   colors: {
-    poopyGreen: ["", "", "", "", "", "", "", "", "", ""],
+    themeColors: ["", "", "", "", "", "", "", "", "", ""],
   },
 });
 

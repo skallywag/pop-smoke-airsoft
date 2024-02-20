@@ -19,23 +19,6 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 
-// type FieldValues = {
-//     title: string;
-//     description: string;
-//     gameType: string;
-//     state: string;
-//     address: string;
-//     locationName: string;
-//     dateTime: string;
-//     paidEvent?: boolean;
-//     entryPrice?: number | null;
-//     acceptedPayment?: Array<string>;
-//   firstName: string;
-//   email: string;
-//   phoneNumber: string
-
-// }
-
 const CreateGame: React.FC = () => {
   const theme = useMantineTheme();
 
@@ -54,7 +37,6 @@ const CreateGame: React.FC = () => {
       firstName: "",
       email: "",
       phoneNumber: "",
-      weinerSize: "",
     },
     validate: {
       title: (value) =>
@@ -90,7 +72,7 @@ const CreateGame: React.FC = () => {
       <Box style={{ boxShadow: "0 0 20px rgba(0,0,0,.18" }}>
         <form
           style={{ padding: "36px 24px" }}
-          onSubmit={form.onSubmit((values) => {
+          onSubmit={form.onSubmit(() => {
             try {
               // createGame(values)
               toast("Game Created!");
