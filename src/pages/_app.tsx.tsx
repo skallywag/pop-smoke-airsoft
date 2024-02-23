@@ -44,7 +44,7 @@ export default function _appTsx({ Component, pageProps }: AppProps) {
           collapsed: { mobile: !opened },
         }}
       >
-        <AppShell.Header style={{ background: "#333" }}>
+        <AppShell.Header className="bg-primaryGray">
           <Group h="100%" px="md">
             <Burger
               size="md"
@@ -56,7 +56,7 @@ export default function _appTsx({ Component, pageProps }: AppProps) {
           </Group>
         </AppShell.Header>
 
-        <AppShell.Navbar style={{ background: "#333", borderRight: "none" }}>
+        <AppShell.Navbar className="bg-primaryGray border-r-0">
           <Burger
             size="md"
             hiddenFrom="sm"
@@ -67,6 +67,7 @@ export default function _appTsx({ Component, pageProps }: AppProps) {
           />
           <Flex align={"center"} gap={20} p={"10px"}>
             <Image
+              alt="airsoft logo"
               src={logo.src}
               radius={60}
               fit={"object-cover"}
@@ -88,19 +89,11 @@ export default function _appTsx({ Component, pageProps }: AppProps) {
                 <Group gap={0}>
                   {groupItems.map((item) => (
                     <NavLink
+                      className={"hover:bg-primaryOrange rounded"}
                       href={item.path}
                       key={item.name}
                       label={item.name}
                       leftSection={item.icon}
-                      style={{
-                        color: "white",
-                        borderRadius: "8px",
-                        root: {
-                          "&:hover": {
-                            backgroundColor: "blue",
-                          },
-                        },
-                      }}
                     />
                   ))}
                 </Group>

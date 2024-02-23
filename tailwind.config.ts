@@ -9,6 +9,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    colors: {
+      primaryOrange: "#E36414",
+      primaryGray: "#333",
+      accentError: "#B31312",
+    },
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
